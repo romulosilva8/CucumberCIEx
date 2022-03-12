@@ -32,7 +32,7 @@ public class Steps {
 	}
 
 	public static void zipFile() {
-		String filePath = System.getProperty("user.dir") + "/target/cucumber.xml";
+		String filePath = System.getProperty("user.dir") + "/target/cucumber.json";
 		
 		try {
 			File file = new File(filePath);
