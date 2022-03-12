@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/Features", glue = {"azulseguroscucumber"}, monochrome = true,
-plugin = {"pretty", "json:target/cucumber.json"}
+plugin = {"pretty", "junit:target/cucumber.xml"}
 )
 public class TestRunner {
  
