@@ -9,6 +9,8 @@ import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
@@ -29,33 +31,5 @@ public class Steps {
 	@Entao("Proceder com recusa da oferta do Cartao Porto")
 	public void proceder_com_recusa_da_oferta_do_cartao_porto() {
 		System.out.println("passou");
-	}
-
-	public static void zipFile() {
-		String filePath = System.getProperty("user.dir") + "/target/cucumber.xml";
-		
-		try {
-			File file = new File(filePath);
-			String zipFileName = file.getName().concat(".zip");
-			
-			FileOutputStream fos = new FileOutputStream(zipFileName);
-			ZipOutputStream zos = new ZipOutputStream(fos);
-			
-			zos.putNextEntry(new ZipEntry(file.getName()));
-			
-			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
-			zos.write(bytes, 0, bytes.length);
-			zos.closeEntry();
-			zos.close();
-			
-		} catch (FileNotFoundException ex) {
-			System.err.format("O arquivo %s nao existe", filePath);
-		} catch (IOException ex) {
-			System.err.println("I/O erro: " + ex);
-		}
-	}
-	
-	public Steps() {
-		zipFile();
 	}
 }
