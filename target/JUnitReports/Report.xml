@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.227">
+    <testcase classname="Negativa de emissao" name="CT03 - CLIENTE NAO POSSUI O CARTAO, HOUVE NEGATIVA PARA O AVISO DE EMISSAO" time="0.022">
+        <system-out><![CDATA[Dado A comunicacao do aviso de emissao......................................passed
+Quando Houver Recusa (avisoEmissaoApolice)..................................passed
+Entao Proceder com recusa da oferta do Cartao Porto.........................passed
+]]></system-out>
+    </testcase>
+</testsuite>
