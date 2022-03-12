@@ -49,9 +49,9 @@ public class Steps {
 			zos.close();
 			
 		} catch (FileNotFoundException ex) {
-			System.err.format("The file %s does not exist", filePath);
+			System.err.format("O arquivo %s nao existe", filePath);
 		} catch (IOException ex) {
-			System.err.println("I/O error: " + ex);
+			System.err.println("I/O erro: " + ex);
 		}
 	}
 	
