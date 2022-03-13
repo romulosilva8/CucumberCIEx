@@ -1,5 +1,7 @@
 package azulseguroscucumber;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,6 +10,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import org.junit.Assert;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
