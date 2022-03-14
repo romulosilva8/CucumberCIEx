@@ -53,8 +53,11 @@ public class Steps {
 			
 			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
 			zos.write(bytes, 0, bytes.length);
+			zos.finish();
+			zos.flush();
 			zos.closeEntry();
 			zos.close();
+			fos.close();
 			
 		} catch (FileNotFoundException ex) {
 			System.err.format("O arquivo %s nao existe", filePath);
