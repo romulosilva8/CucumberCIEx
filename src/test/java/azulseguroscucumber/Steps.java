@@ -3,6 +3,7 @@ package azulseguroscucumber;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,4 +37,30 @@ public class Steps {
 	public void proceder_com_recusa_da_oferta_do_cartao_porto() {
 		System.out.println("passou");
 	}
+	
+	@AfterAll
+	public static void zipFile() {
+		String filePath = "cucumber.json";
+		
+		try {
+			File file = new File(filePath);
+			String zipFileName = file.getName().concat(".zip");
+			
+			FileOutputStream fos = new FileOutputStream(zipFileName);
+			ZipOutputStream zos = new ZipOutputStream(fos);
+			
+			zos.putNextEntry(new ZipEntry(file.getName()));
+			
+			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
+			zos.write(bytes, 0, bytes.length);
+			zos.closeEntry();
+			zos.close();
+			
+		} catch (FileNotFoundException ex) {
+			System.err.format("O arquivo %s nao existe", filePath);
+		} catch (IOException ex) {
+			System.err.println("I/O erro: " + ex);
+		}
+	}
 }
+
