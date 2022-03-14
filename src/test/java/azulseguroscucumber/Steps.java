@@ -38,32 +38,34 @@ public class Steps {
 		System.out.println("passou");
 	}
 	
-	@AfterAll
-	public static void zipFile() {
-		String filePath = "cucumber.json";
-		
-		try {
-			File file = new File(filePath);
-			String zipFileName = file.getName().concat(".zip");
-			
-			FileOutputStream fos = new FileOutputStream(zipFileName);
-			ZipOutputStream zos = new ZipOutputStream(fos);
-			
-			zos.putNextEntry(new ZipEntry(file.getName()));
-			
-			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
-			zos.write(bytes, 0, bytes.length);
-			zos.finish();
-			zos.flush();
-			zos.closeEntry();
-			zos.close();
-			fos.close();
-			
-		} catch (FileNotFoundException ex) {
-			System.err.format("O arquivo %s nao existe", filePath);
-		} catch (IOException ex) {
-			System.err.println("I/O erro: " + ex);
-		}
-	}
+//	@AfterAll
+//	public static void zipFile() {
+//		String filePath = "cucumber.json";
+//		
+//		try {
+//			File file = new File(filePath);
+//			//String zipFileName = file.getName().concat(".zip");
+//			
+//			FileOutputStream fos = new FileOutputStream("report.zip");
+//			ZipOutputStream zos = new ZipOutputStream(fos);
+//			
+//			zos.putNextEntry(new ZipEntry(file.getName()));
+//			
+//			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
+//			zos.write(bytes, 0, bytes.length);
+//			zos.closeEntry();
+//			fos.flush();
+//			fos.close();
+//			zos.finish();
+//			zos.flush();
+//			zos.close();
+//			
+//		} catch (FileNotFoundException ex) {
+//			System.err.format("O arquivo %s nao existe", filePath);
+//		} catch (IOException ex) {
+//			System.err.println("I/O erro: " + ex);
+//		}
+//	}
+	
 }
 
