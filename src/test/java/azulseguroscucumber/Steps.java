@@ -30,7 +30,7 @@ public class Steps {
 
 	@Quando("Houver Recusa \\(avisoEmissaoApolice)")
 	public void houver_recusa_aviso_emissao_apolice() {
-		System.out.println("passou");
+		Assert.assertTrue(false);
 	}
 
 	@Entao("Proceder com recusa da oferta do Cartao Porto")
