@@ -34,11 +34,11 @@ jobs:
         -F 'testCycle="{\"name\": \"CICLO AUTOMATIZADO\", \"description\": \"Cycle automated \"}";type=application/json'
     - name: Create issue
       run: |
-        curl -o file.txt -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' \
+        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}'\
         
     - name: get file
       run: |
-        cat file.txt
+        cat file.json
