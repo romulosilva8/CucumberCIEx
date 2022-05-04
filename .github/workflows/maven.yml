@@ -42,3 +42,4 @@ jobs:
     - name: get file
       run: |
         cat file.json
+        json id
