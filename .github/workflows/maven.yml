@@ -49,4 +49,4 @@ jobs:
         curl -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/AQA-31/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
-        -F 'file=@"/1.png"'
+        -F 'file=@"/1.PNG"'
