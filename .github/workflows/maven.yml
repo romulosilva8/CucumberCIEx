@@ -47,8 +47,8 @@ jobs:
         
          
     - name: attach evidence
+      BUG_ID: jq '.id' file.json
       run: |
-        BUG_ID: jq '.id' file.json \
         curl -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/BUG_ID/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
