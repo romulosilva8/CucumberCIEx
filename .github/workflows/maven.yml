@@ -43,6 +43,8 @@ jobs:
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}'\
         
+      env:
+        BUG_ID: 'jq \".id\" file.json'
         
     - name: get file
       run: |
