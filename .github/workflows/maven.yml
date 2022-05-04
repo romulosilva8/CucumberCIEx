@@ -45,7 +45,7 @@ jobs:
         jq '.id' file.json
         
       
-    - BUG_ID = "jq '.id' file.json"
+        $BUG_ID: jq '.id' file.json
         
          
     - name: attach evidence
