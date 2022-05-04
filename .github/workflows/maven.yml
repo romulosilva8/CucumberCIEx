@@ -38,27 +38,23 @@ jobs:
         -F 'testCycle="{\"name\": \"CICLO AUTOMATIZADO\", \"description\": \"Cycle automated \"}";type=application/json'
     - name: Create issue
       run: |
-        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' \
+        echo 'JSON_RESPONSE<<EOL' >> $GITHUB_ENV \
+        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' >> $GITHUB_ENV \
         -H 'Content-Type: application/json' \
-        -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
-        -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}'\
+        -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ='>> $GITHUB_ENV \
+        -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}'>> $GITHUB_ENV \
+        echo 'EOL' >> $GITHUB_ENV
       continue-on-error: true
         
 #     - name: get file
 #       run: |
 #         cat file.json
 #         jq '.id' file.json
-#       env:
-#         BUG_ID: 'jq \".id\" file.json'
         
          
     - name: attach evidence
       run: |
-        cat file.json
-        jq '.id' file.json
-        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/$BUG_ID/attachments' \
+        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/${{ EOL }}/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -F 'file=@"1.PNG"'
-      env:
-        BUG_ID: 'jq \".id\" file.json'
