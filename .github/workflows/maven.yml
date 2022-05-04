@@ -42,4 +42,4 @@ jobs:
     - name: get file
       run: |
         cat file.json
-        jq 'keys' file.json
+        jq '.id' file.json
