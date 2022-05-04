@@ -44,18 +44,18 @@ jobs:
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}'\
       continue-on-error: true
         
-      env:
-        BUG_ID: 'jq \".id\" file.json'
-        
     - name: get file
       run: |
         cat file.json
         jq '.id' file.json
         
+      env:
+        BUG_ID: 'jq \".id\" file.json'
+        
          
     - name: attach evidence
       run: |
-        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/{BUG_ID}/attachments' \
+        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/${BUG_ID}/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -F 'file=@"1.PNG"'
