@@ -1,0 +1,3 @@
+variables:
+   - name: BUG_ID
+     value: ''
