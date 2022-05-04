@@ -53,7 +53,7 @@ jobs:
          
     - name: attach evidence
       run: |
-        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/${BUG_ID}/attachments' \
+        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/${{BUG_ID}}/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -F 'file=@"1.PNG"'
