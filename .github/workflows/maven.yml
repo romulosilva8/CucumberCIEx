@@ -10,6 +10,8 @@ on:
   pull_request:
     branches: [ main ]
     
+env:
+  JSON_RESPONSE: 1234
 
 jobs:
   build:
@@ -39,12 +41,11 @@ jobs:
     
     - name: Create issue
       run: |
-        echo 'JSON_RESPONSE' >> $GITHUB_ENV \
         curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}' \
-        "JSON_RESPONSE" = jq '.id' file.json
+#        "JSON_RESPONSE" = jq '.id' file.json
 #        echo 'EOF' >> $GITHUB_ENV
       continue-on-error: true
         
