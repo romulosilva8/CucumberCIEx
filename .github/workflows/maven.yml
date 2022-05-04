@@ -52,7 +52,7 @@ jobs:
     - name: get file
       run: |
        cat file.json
-       export JSON_RESPONSE = jq '.id' file.json 
+       export JSON_RESPONSE = 'jq '.id' file.json'
         
          
     - name: attach evidence
