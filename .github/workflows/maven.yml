@@ -52,7 +52,7 @@ jobs:
     - name: get file
       run: |
        cat file.json
-       export JSON_RESPONSE = '789'
+       ::set-env JSON_RESPONSE = 789
         
          
     - name: attach evidence
