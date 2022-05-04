@@ -48,7 +48,6 @@ jobs:
       run: |
         cat file.json
         jq '.id' file.json
-        
       env:
         BUG_ID: 'jq \".id\" file.json'
         
