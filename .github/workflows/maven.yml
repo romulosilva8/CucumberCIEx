@@ -40,11 +40,11 @@ jobs:
     - name: Create issue
       run: |
         echo 'JSON_RESPONSE' >> $GITHUB_ENV \
-        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' >> $GITHUB_ENV \
+        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' >> $JSON_RESPONSE \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}' \
-        echo "${{ JSON_RESPONSE }}"
+        echo "${{ env.JSON_RESPONSE }}"
 #        echo 'EOF' >> $GITHUB_ENV
       continue-on-error: true
         
