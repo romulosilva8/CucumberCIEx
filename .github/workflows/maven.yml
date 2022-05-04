@@ -36,6 +36,7 @@ jobs:
         -H 'Authorization: Bearer ${{ secrets.ZEPHYR_TOKEN }}' \
         -F 'file=@report.zip' \
         -F 'testCycle="{\"name\": \"CICLO AUTOMATIZADO\", \"description\": \"Cycle automated \"}";type=application/json'
+    
     - name: Create issue
       run: |
         echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV \
