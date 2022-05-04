@@ -32,7 +32,8 @@ jobs:
         -H 'Authorization: Bearer ${{ secrets.ZEPHYR_TOKEN }}' \
         -F 'file=@report.zip' \
         -F 'testCycle="{\"name\": \"CICLO AUTOMATIZADO\", \"description\": \"Cycle automated \"}";type=application/json'
-
+    - name: Create issue
+      run: |
         POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
