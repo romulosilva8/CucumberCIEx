@@ -49,10 +49,10 @@ jobs:
 #        echo 'EOF' >> $GITHUB_ENV
       continue-on-error: true
         
-    - name: get file
-      run: |
-       cat file.json
-       ::set-env JSON_RESPONSE = 789
+#     - name: get file
+#       run: |
+#        cat file.json
+#        ::set-env JSON_RESPONSE = 789
         
          
     - name: attach evidence
