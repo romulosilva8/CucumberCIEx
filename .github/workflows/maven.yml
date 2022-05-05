@@ -41,7 +41,7 @@ jobs:
     
     - name: Create issue
       run: |
-        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' | jq -c '.id' \
+        curl -o file.json -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue' > test.json \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -d '{"fields":{"project":{"key":"AQA"},"summary":"TESTE PIPELINE","description":"TESTE","issuetype":{"id":"10021"}}}' \
@@ -52,12 +52,12 @@ jobs:
 #     - name: get file
 #       run: |
 #        cat file.json
-#        ::set-env JSON_RESPONSE = 789
+#        jq '.id' file.json
         
          
     - name: attach evidence
       run: |
-        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/${{ env.JSON_RESPONSE }}/attachments' \
+        curl -v -X POST 'https://team-1635879671932.atlassian.net/rest/api/latest/issue/test.json | jq '.id'/attachments' \
         -H 'X-Atlassian-Token: no-check' \
         -H 'Authorization: Basic bWF0aGV1cy52aWVpcmFAaWxhYnFhLmNvbTpFN0c1aEhpc1kxVnltallaMGpiSEVCOUQ=' \
         -F 'file=@"1.PNG"'
